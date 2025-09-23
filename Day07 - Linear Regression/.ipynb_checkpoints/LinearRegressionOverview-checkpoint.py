@@ -68,7 +68,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 95,
+   "execution_count": 2,
    "id": "5155bffd-6fbb-4c05-a685-24f3bbce4e64",
    "metadata": {},
    "outputs": [],
@@ -82,7 +82,6 @@
     "from sklearn.preprocessing import StandardScaler, LabelEncoder\n",
     "from sklearn.model_selection import train_test_split\n",
     "from sklearn.linear_model import LinearRegression\n",
-    "from sklearn.metrics import mean_absolute_error, mean_squared_error\n",
     "\n",
     "import warnings\n",
     "warnings.filterwarnings('ignore')"
@@ -115,7 +114,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 83,
+   "execution_count": 4,
    "id": "ec8b2027-f5be-474e-8094-bcaa706035f2",
    "metadata": {},
    "outputs": [],
@@ -403,7 +402,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 84,
+   "execution_count": 6,
    "id": "01ba0d74-e801-4d83-8a56-ca3d29f812b2",
    "metadata": {},
    "outputs": [],
@@ -692,202 +691,24 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 85,
-   "id": "07e24e94-8b41-4aab-8fc7-7f8404d4f007",
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>age</th>\n",
-       "      <th>sex</th>\n",
-       "      <th>bmi</th>\n",
-       "      <th>children</th>\n",
-       "      <th>smoker</th>\n",
-       "      <th>region</th>\n",
-       "      <th>charges</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>19</td>\n",
-       "      <td>0</td>\n",
-       "      <td>27.900</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>3</td>\n",
-       "      <td>16884.92400</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>18</td>\n",
-       "      <td>1</td>\n",
-       "      <td>33.770</td>\n",
-       "      <td>1</td>\n",
-       "      <td>0</td>\n",
-       "      <td>2</td>\n",
-       "      <td>1725.55230</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>28</td>\n",
-       "      <td>1</td>\n",
-       "      <td>33.000</td>\n",
-       "      <td>3</td>\n",
-       "      <td>0</td>\n",
-       "      <td>2</td>\n",
-       "      <td>4449.46200</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>33</td>\n",
-       "      <td>1</td>\n",
-       "      <td>22.705</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>21984.47061</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>4</th>\n",
-       "      <td>32</td>\n",
-       "      <td>1</td>\n",
-       "      <td>28.880</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>3866.85520</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>...</th>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1333</th>\n",
-       "      <td>50</td>\n",
-       "      <td>1</td>\n",
-       "      <td>30.970</td>\n",
-       "      <td>3</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>10600.54830</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1334</th>\n",
-       "      <td>18</td>\n",
-       "      <td>0</td>\n",
-       "      <td>31.920</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>2205.98080</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1335</th>\n",
-       "      <td>18</td>\n",
-       "      <td>0</td>\n",
-       "      <td>36.850</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>2</td>\n",
-       "      <td>1629.83350</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1336</th>\n",
-       "      <td>21</td>\n",
-       "      <td>0</td>\n",
-       "      <td>25.800</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>3</td>\n",
-       "      <td>2007.94500</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1337</th>\n",
-       "      <td>61</td>\n",
-       "      <td>0</td>\n",
-       "      <td>29.070</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>1</td>\n",
-       "      <td>29141.36030</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "<p>1338 rows × 7 columns</p>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "      age  sex     bmi  children  smoker  region      charges\n",
-       "0      19    0  27.900         0       1       3  16884.92400\n",
-       "1      18    1  33.770         1       0       2   1725.55230\n",
-       "2      28    1  33.000         3       0       2   4449.46200\n",
-       "3      33    1  22.705         0       0       1  21984.47061\n",
-       "4      32    1  28.880         0       0       1   3866.85520\n",
-       "...   ...  ...     ...       ...     ...     ...          ...\n",
-       "1333   50    1  30.970         3       0       1  10600.54830\n",
-       "1334   18    0  31.920         0       0       0   2205.98080\n",
-       "1335   18    0  36.850         0       0       2   1629.83350\n",
-       "1336   21    0  25.800         0       0       3   2007.94500\n",
-       "1337   61    0  29.070         0       1       1  29141.36030\n",
-       "\n",
-       "[1338 rows x 7 columns]"
-      ]
-     },
-     "execution_count": 85,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "data"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 86,
+   "execution_count": 14,
    "id": "9eaa09b7-036b-482f-ae33-84b2ea9dc2d9",
    "metadata": {},
    "outputs": [],
    "source": [
-    "X = data.drop('charges', axis = 1)\n",
+    "x = data.drop('charges', axis = 1)\n",
     "y = data['charges']"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 87,
+   "execution_count": 16,
    "id": "995912e9-df11-4886-b39c-ef0dbbff8098",
    "metadata": {},
    "outputs": [],
    "source": [
     "sc = StandardScaler()\n",
-    "X_scaled = sc.fit_transform(X)"
+    "x = sc.fit_transform(x)"
    ]
   },
   {
@@ -979,19 +800,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 88,
+   "execution_count": 19,
    "id": "50ca1483-cb50-437e-871b-006e2aecf79e",
    "metadata": {},
    "outputs": [],
    "source": [
-    "x_train, x_test, y_train, y_test = train_test_split(\n",
-    "    X_scaled, y, test_size = 0.22, random_state = 42\n",
-    ")"
+    "x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.22, random_state = 42)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 89,
+   "execution_count": 39,
    "id": "41c9bd74-766a-43d6-8914-021e7bc805bb",
    "metadata": {},
    "outputs": [
@@ -1026,31 +845,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 90,
+   "execution_count": 35,
    "id": "ea098d09-5915-4829-b8aa-45888c933016",
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Model expects: 6 features\n",
-      "Scaler was fitted on: 6 features\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "model = LinearRegression()\n",
-    "model.fit(x_train, y_train)\n",
-    "predict = model.predict(x_test)\n",
-    "\n",
-    "print(\"Model expects:\", model.n_features_in_, \"features\")   # should print 6\n",
-    "print(\"Scaler was fitted on:\", sc.n_features_in_, \"features\")  # should print 6"
+    "model = model.fit(x_train, y_train)\n",
+    "predict = model.predict(x_test)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 91,
+   "execution_count": 44,
    "id": "dff0968f-9fbf-483a-bc03-94d776229266",
    "metadata": {},
    "outputs": [
@@ -1105,115 +912,58 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 71,
-   "id": "bff22e3f-547b-4ebb-82cc-5224fc832bcf",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Scaler was fitted on: 3 features\n"
-     ]
-    }
-   ],
-   "source": [
-    "print(\"Scaler was fitted on:\", sc.n_features_in_, \"features\")"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 92,
-   "id": "13414834-66b8-425e-b813-2455ff98347f",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "All available features: Index(['age', 'sex', 'bmi', 'children', 'smoker', 'region'], dtype='object')\n",
-      "Features passed to scaler: Index(['age', 'bmi', 'children'], dtype='object')\n"
-     ]
-    }
-   ],
-   "source": [
-    "# Compare with your training code\n",
-    "features_used = data.drop('charges', axis=1)\n",
-    "\n",
-    "print(\"All available features:\", features_used.columns)\n",
-    "\n",
-    "# If you had manually selected only 3 features:\n",
-    "# For example\n",
-    "x = data[['age', 'bmi', 'children']]\n",
-    "print(\"Features passed to scaler:\", x.columns)\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 75,
-   "id": "a7426cc9-d065-4eed-851f-a2609839d9b2",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Model expects: 6 features\n"
-     ]
-    }
-   ],
-   "source": [
-    "print(\"Model expects:\", model.n_features_in_, \"features\")"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 94,
-   "id": "5ddee4c8-4cca-48e7-beab-3270b9258215",
+   "execution_count": 65,
+   "id": "9d9091dc-8cb3-40ec-b080-e119a6558d65",
    "metadata": {},
    "outputs": [
     {
      "name": "stdin",
      "output_type": "stream",
      "text": [
-      "Enter age:  20\n",
-      "Enter sex (encoded value from your label encoder, e.g., 0 or 1):  0\n",
-      "Enter BMI:  30\n",
-      "Enter number of children:  1\n",
-      "Smoker? (encoded value from your label encoder, e.g., 0 or 1):  0\n",
-      "Enter region (encoded value from your label encoder, e.g., 0-3):  2\n"
+      "Current Age\t\t: 20\n",
+      "Provide Gender\n",
+      "\n",
+      "(male / female)\t: female\n",
+      "Provide BMI\t\t: 30\n",
+      "Children\n",
+      "Choose between - [0, 1, 3, 2, 5, 4]\t: 3\n",
+      "Are you a Smoker?\n",
+      "(yes / no)\t: no\n",
+      "Region -\n",
+      "Choose between - [3, 2, 1, 0]\t: 2\n"
      ]
     },
     {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\n",
-      "Predicted Insurance Charges: 3163.71\n"
+     "ename": "ValueError",
+     "evalue": "could not convert string to float: 'female'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mValueError\u001b[39m                                Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[65]\u001b[39m\u001b[32m, line 12\u001b[39m\n\u001b[32m     10\u001b[39m     user_data = sc.transform(user_data)\n\u001b[32m     11\u001b[39m     \u001b[38;5;28;01mreturn\u001b[39;00m model.predict(user_data)[\u001b[32m0\u001b[39m]\n\u001b[32m---> \u001b[39m\u001b[32m12\u001b[39m \u001b[43mtest_input\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\n",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[65]\u001b[39m\u001b[32m, line 10\u001b[39m, in \u001b[36mtest_input\u001b[39m\u001b[34m()\u001b[39m\n\u001b[32m      8\u001b[39m region = \u001b[38;5;28minput\u001b[39m(\u001b[33mf\u001b[39m\u001b[33m\"\u001b[39m\u001b[33mRegion -\u001b[39m\u001b[38;5;130;01m\\n\u001b[39;00m\u001b[33mChoose between - \u001b[39m\u001b[38;5;132;01m{\u001b[39;00mdata.region.unique().tolist()\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;130;01m\\t\u001b[39;00m\u001b[33m:\u001b[39m\u001b[33m\"\u001b[39m)\n\u001b[32m      9\u001b[39m user_data = np.array([[age, sex, bmi, children, smoker, region]])\n\u001b[32m---> \u001b[39m\u001b[32m10\u001b[39m user_data = \u001b[43msc\u001b[49m\u001b[43m.\u001b[49m\u001b[43mtransform\u001b[49m\u001b[43m(\u001b[49m\u001b[43muser_data\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m     11\u001b[39m \u001b[38;5;28;01mreturn\u001b[39;00m model.predict(user_data)[\u001b[32m0\u001b[39m]\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\_set_output.py:316\u001b[39m, in \u001b[36m_wrap_method_output.<locals>.wrapped\u001b[39m\u001b[34m(self, X, *args, **kwargs)\u001b[39m\n\u001b[32m    314\u001b[39m \u001b[38;5;129m@wraps\u001b[39m(f)\n\u001b[32m    315\u001b[39m \u001b[38;5;28;01mdef\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34mwrapped\u001b[39m(\u001b[38;5;28mself\u001b[39m, X, *args, **kwargs):\n\u001b[32m--> \u001b[39m\u001b[32m316\u001b[39m     data_to_wrap = \u001b[43mf\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mX\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43m*\u001b[49m\u001b[43margs\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43m*\u001b[49m\u001b[43m*\u001b[49m\u001b[43mkwargs\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m    317\u001b[39m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28misinstance\u001b[39m(data_to_wrap, \u001b[38;5;28mtuple\u001b[39m):\n\u001b[32m    318\u001b[39m         \u001b[38;5;66;03m# only wrap the first output for cross decomposition\u001b[39;00m\n\u001b[32m    319\u001b[39m         return_tuple = (\n\u001b[32m    320\u001b[39m             _wrap_data_with_container(method, data_to_wrap[\u001b[32m0\u001b[39m], X, \u001b[38;5;28mself\u001b[39m),\n\u001b[32m    321\u001b[39m             *data_to_wrap[\u001b[32m1\u001b[39m:],\n\u001b[32m    322\u001b[39m         )\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\sklearn\\preprocessing\\_data.py:1075\u001b[39m, in \u001b[36mStandardScaler.transform\u001b[39m\u001b[34m(self, X, copy)\u001b[39m\n\u001b[32m   1072\u001b[39m check_is_fitted(\u001b[38;5;28mself\u001b[39m)\n\u001b[32m   1074\u001b[39m copy = copy \u001b[38;5;28;01mif\u001b[39;00m copy \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m \u001b[38;5;28;01melse\u001b[39;00m \u001b[38;5;28mself\u001b[39m.copy\n\u001b[32m-> \u001b[39m\u001b[32m1075\u001b[39m X = \u001b[43mvalidate_data\u001b[49m\u001b[43m(\u001b[49m\n\u001b[32m   1076\u001b[39m \u001b[43m    \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[43m,\u001b[49m\n\u001b[32m   1077\u001b[39m \u001b[43m    \u001b[49m\u001b[43mX\u001b[49m\u001b[43m,\u001b[49m\n\u001b[32m   1078\u001b[39m \u001b[43m    \u001b[49m\u001b[43mreset\u001b[49m\u001b[43m=\u001b[49m\u001b[38;5;28;43;01mFalse\u001b[39;49;00m\u001b[43m,\u001b[49m\n\u001b[32m   1079\u001b[39m \u001b[43m    \u001b[49m\u001b[43maccept_sparse\u001b[49m\u001b[43m=\u001b[49m\u001b[33;43m\"\u001b[39;49m\u001b[33;43mcsr\u001b[39;49m\u001b[33;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\n\u001b[32m   1080\u001b[39m \u001b[43m    \u001b[49m\u001b[43mcopy\u001b[49m\u001b[43m=\u001b[49m\u001b[43mcopy\u001b[49m\u001b[43m,\u001b[49m\n\u001b[32m   1081\u001b[39m \u001b[43m    \u001b[49m\u001b[43mdtype\u001b[49m\u001b[43m=\u001b[49m\u001b[43mFLOAT_DTYPES\u001b[49m\u001b[43m,\u001b[49m\n\u001b[32m   1082\u001b[39m \u001b[43m    \u001b[49m\u001b[43mforce_writeable\u001b[49m\u001b[43m=\u001b[49m\u001b[38;5;28;43;01mTrue\u001b[39;49;00m\u001b[43m,\u001b[49m\n\u001b[32m   1083\u001b[39m \u001b[43m    \u001b[49m\u001b[43mensure_all_finite\u001b[49m\u001b[43m=\u001b[49m\u001b[33;43m\"\u001b[39;49m\u001b[33;43mallow-nan\u001b[39;49m\u001b[33;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\n\u001b[32m   1084\u001b[39m \u001b[43m\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m   1086\u001b[39m \u001b[38;5;28;01mif\u001b[39;00m sparse.issparse(X):\n\u001b[32m   1087\u001b[39m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28mself\u001b[39m.with_mean:\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\validation.py:2954\u001b[39m, in \u001b[36mvalidate_data\u001b[39m\u001b[34m(_estimator, X, y, reset, validate_separately, skip_check_array, **check_params)\u001b[39m\n\u001b[32m   2952\u001b[39m         out = X, y\n\u001b[32m   2953\u001b[39m \u001b[38;5;28;01melif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m no_val_X \u001b[38;5;129;01mand\u001b[39;00m no_val_y:\n\u001b[32m-> \u001b[39m\u001b[32m2954\u001b[39m     out = \u001b[43mcheck_array\u001b[49m\u001b[43m(\u001b[49m\u001b[43mX\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43minput_name\u001b[49m\u001b[43m=\u001b[49m\u001b[33;43m\"\u001b[39;49m\u001b[33;43mX\u001b[39;49m\u001b[33;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43m*\u001b[49m\u001b[43m*\u001b[49m\u001b[43mcheck_params\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m   2955\u001b[39m \u001b[38;5;28;01melif\u001b[39;00m no_val_X \u001b[38;5;129;01mand\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m no_val_y:\n\u001b[32m   2956\u001b[39m     out = _check_y(y, **check_params)\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\validation.py:1053\u001b[39m, in \u001b[36mcheck_array\u001b[39m\u001b[34m(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_writeable, force_all_finite, ensure_all_finite, ensure_non_negative, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator, input_name)\u001b[39m\n\u001b[32m   1051\u001b[39m         array = xp.astype(array, dtype, copy=\u001b[38;5;28;01mFalse\u001b[39;00m)\n\u001b[32m   1052\u001b[39m     \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[32m-> \u001b[39m\u001b[32m1053\u001b[39m         array = \u001b[43m_asarray_with_order\u001b[49m\u001b[43m(\u001b[49m\u001b[43marray\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43morder\u001b[49m\u001b[43m=\u001b[49m\u001b[43morder\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mdtype\u001b[49m\u001b[43m=\u001b[49m\u001b[43mdtype\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mxp\u001b[49m\u001b[43m=\u001b[49m\u001b[43mxp\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m   1054\u001b[39m \u001b[38;5;28;01mexcept\u001b[39;00m ComplexWarning \u001b[38;5;28;01mas\u001b[39;00m complex_warning:\n\u001b[32m   1055\u001b[39m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mValueError\u001b[39;00m(\n\u001b[32m   1056\u001b[39m         \u001b[33m\"\u001b[39m\u001b[33mComplex data not supported\u001b[39m\u001b[38;5;130;01m\\n\u001b[39;00m\u001b[38;5;132;01m{}\u001b[39;00m\u001b[38;5;130;01m\\n\u001b[39;00m\u001b[33m\"\u001b[39m.format(array)\n\u001b[32m   1057\u001b[39m     ) \u001b[38;5;28;01mfrom\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mcomplex_warning\u001b[39;00m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\_array_api.py:757\u001b[39m, in \u001b[36m_asarray_with_order\u001b[39m\u001b[34m(array, dtype, order, copy, xp, device)\u001b[39m\n\u001b[32m    755\u001b[39m     array = numpy.array(array, order=order, dtype=dtype)\n\u001b[32m    756\u001b[39m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[32m--> \u001b[39m\u001b[32m757\u001b[39m     array = \u001b[43mnumpy\u001b[49m\u001b[43m.\u001b[49m\u001b[43masarray\u001b[49m\u001b[43m(\u001b[49m\u001b[43marray\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43morder\u001b[49m\u001b[43m=\u001b[49m\u001b[43morder\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mdtype\u001b[49m\u001b[43m=\u001b[49m\u001b[43mdtype\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m    759\u001b[39m \u001b[38;5;66;03m# At this point array is a NumPy ndarray. We convert it to an array\u001b[39;00m\n\u001b[32m    760\u001b[39m \u001b[38;5;66;03m# container that is consistent with the input's namespace.\u001b[39;00m\n\u001b[32m    761\u001b[39m \u001b[38;5;28;01mreturn\u001b[39;00m xp.asarray(array)\n",
+      "\u001b[31mValueError\u001b[39m: could not convert string to float: 'female'"
      ]
     }
    ],
    "source": [
-    "def predict_charges_from_input():\n",
-    "    # Ask for input values\n",
-    "    age = int(input(\"Enter age: \"))\n",
-    "    sex = int(input(f\"Enter sex (encoded value from your label encoder, e.g., 0 or 1): \"))\n",
-    "    bmi = float(input(\"Enter BMI: \"))\n",
-    "    children = int(input(\"Enter number of children: \"))\n",
-    "    smoker = int(input(f\"Smoker? (encoded value from your label encoder, e.g., 0 or 1): \"))\n",
-    "    region = int(input(f\"Enter region (encoded value from your label encoder, e.g., 0-3): \"))\n",
-    "\n",
-    "    # Put inputs in the same shape\n",
-    "    input_data = np.array([[age, sex, bmi, children, smoker, region]])\n",
-    "\n",
-    "    # Scale inputs\n",
-    "    input_scaled = sc.transform(input_data)\n",
-    "\n",
-    "    # Predict charges\n",
-    "    prediction = model.predict(input_scaled)\n",
-    "    print(f\"\\nPredicted Insurance Charges: {prediction[0]:.2f}\")\n",
-    "\n",
-    "predict_charges_from_input()"
+    "def test_input():\n",
+    "    # age, sex,\tbmi, children,\tsmoker,\tregion\n",
+    "    age = int(input(\"Current Age\\t\\t:\"))\n",
+    "    sex = input(\"Provide Gender\\n\\n(male / female)\\t:\")\n",
+    "    bmi = float(input(\"Provide BMI\\t\\t:\"))\n",
+    "    children = int(input(f\"Children\\nChoose between - {data.children.unique().tolist()}\\t:\"))\n",
+    "    smoker = input(\"Are you a Smoker?\\n(yes / no)\\t:\")\n",
+    "    region = input(f\"Region -\\nChoose between - {data.region.unique().tolist()}\\t:\")\n",
+    "    user_data = np.array([[age, sex, bmi, children, smoker, region]])\n",
+    "    user_data = sc.transform(user_data)\n",
+    "    return model.predict(user_data)[0]\n",
+    "test_input()"
    ]
   },
   {
@@ -1239,139 +989,182 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 96,
-   "id": "60e9641b-411a-4773-96b3-269ad2cee5a4",
+   "execution_count": 63,
+   "id": "a69c385c-d09e-4be9-8ca4-d5b2fbdcc67a",
    "metadata": {},
    "outputs": [
     {
      "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>age</th>\n",
+       "      <th>sex</th>\n",
+       "      <th>bmi</th>\n",
+       "      <th>children</th>\n",
+       "      <th>smoker</th>\n",
+       "      <th>region</th>\n",
+       "      <th>charges</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>19</td>\n",
+       "      <td>female</td>\n",
+       "      <td>27.900</td>\n",
+       "      <td>0</td>\n",
+       "      <td>yes</td>\n",
+       "      <td>southwest</td>\n",
+       "      <td>16884.92400</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>18</td>\n",
+       "      <td>male</td>\n",
+       "      <td>33.770</td>\n",
+       "      <td>1</td>\n",
+       "      <td>no</td>\n",
+       "      <td>southeast</td>\n",
+       "      <td>1725.55230</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>28</td>\n",
+       "      <td>male</td>\n",
+       "      <td>33.000</td>\n",
+       "      <td>3</td>\n",
+       "      <td>no</td>\n",
+       "      <td>southeast</td>\n",
+       "      <td>4449.46200</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>33</td>\n",
+       "      <td>male</td>\n",
+       "      <td>22.705</td>\n",
+       "      <td>0</td>\n",
+       "      <td>no</td>\n",
+       "      <td>northwest</td>\n",
+       "      <td>21984.47061</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>32</td>\n",
+       "      <td>male</td>\n",
+       "      <td>28.880</td>\n",
+       "      <td>0</td>\n",
+       "      <td>no</td>\n",
+       "      <td>northwest</td>\n",
+       "      <td>3866.85520</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1333</th>\n",
+       "      <td>50</td>\n",
+       "      <td>male</td>\n",
+       "      <td>30.970</td>\n",
+       "      <td>3</td>\n",
+       "      <td>no</td>\n",
+       "      <td>northwest</td>\n",
+       "      <td>10600.54830</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1334</th>\n",
+       "      <td>18</td>\n",
+       "      <td>female</td>\n",
+       "      <td>31.920</td>\n",
+       "      <td>0</td>\n",
+       "      <td>no</td>\n",
+       "      <td>northeast</td>\n",
+       "      <td>2205.98080</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1335</th>\n",
+       "      <td>18</td>\n",
+       "      <td>female</td>\n",
+       "      <td>36.850</td>\n",
+       "      <td>0</td>\n",
+       "      <td>no</td>\n",
+       "      <td>southeast</td>\n",
+       "      <td>1629.83350</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1336</th>\n",
+       "      <td>21</td>\n",
+       "      <td>female</td>\n",
+       "      <td>25.800</td>\n",
+       "      <td>0</td>\n",
+       "      <td>no</td>\n",
+       "      <td>southwest</td>\n",
+       "      <td>2007.94500</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1337</th>\n",
+       "      <td>61</td>\n",
+       "      <td>female</td>\n",
+       "      <td>29.070</td>\n",
+       "      <td>0</td>\n",
+       "      <td>yes</td>\n",
+       "      <td>northwest</td>\n",
+       "      <td>29141.36030</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>1338 rows × 7 columns</p>\n",
+       "</div>"
+      ],
       "text/plain": [
-       "4236.626831981404"
+       "      age     sex     bmi  children smoker     region      charges\n",
+       "0      19  female  27.900         0    yes  southwest  16884.92400\n",
+       "1      18    male  33.770         1     no  southeast   1725.55230\n",
+       "2      28    male  33.000         3     no  southeast   4449.46200\n",
+       "3      33    male  22.705         0     no  northwest  21984.47061\n",
+       "4      32    male  28.880         0     no  northwest   3866.85520\n",
+       "...   ...     ...     ...       ...    ...        ...          ...\n",
+       "1333   50    male  30.970         3     no  northwest  10600.54830\n",
+       "1334   18  female  31.920         0     no  northeast   2205.98080\n",
+       "1335   18  female  36.850         0     no  southeast   1629.83350\n",
+       "1336   21  female  25.800         0     no  southwest   2007.94500\n",
+       "1337   61  female  29.070         0    yes  northwest  29141.36030\n",
+       "\n",
+       "[1338 rows x 7 columns]"
       ]
      },
-     "execution_count": 96,
+     "execution_count": 63,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "mean_absolute_error(\n",
-    "    y_true = y_test,\n",
-    "    y_pred = predict\n",
-    ")"
+    "temp_data = pd.read_csv('medical.csv')\n",
+    "temp_data"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 100,
-   "id": "f1c94d83-4ab1-450f-a3b8-795344887cec",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "RMSE: 5915.4349868074105\n"
-     ]
-    }
-   ],
-   "source": [
-    "rmse = np.sqrt(mean_squared_error(y_test, predict))\n",
-    "print(\"RMSE:\", rmse)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 103,
-   "id": "a186c29e-f625-46a0-8692-377caea083f9",
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "0.7441936495109288"
-      ]
-     },
-     "execution_count": 103,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "model.score(x_train, y_train)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 104,
-   "id": "6a8d4eba-9f42-47ba-9d9b-58f7b68d16a8",
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "0.7717585709071126"
-      ]
-     },
-     "execution_count": 104,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "model.score(x_test, y_test)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 106,
-   "id": "ab9388fb-89b6-45e8-a856-66289c700ca1",
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "array([3586.20875069,  -16.09420845, 2090.84282776,  495.90405977,\n",
-       "       9547.04902343, -331.13782983])"
-      ]
-     },
-     "execution_count": 106,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "model.coef_"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 107,
-   "id": "9e94bdea-119f-4d55-a046-7277aae94f12",
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "13308.389669770473"
-      ]
-     },
-     "execution_count": 107,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "model.intercept_"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "cf153801-2ffe-46c2-b6c2-0a25e6d71204",
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {
